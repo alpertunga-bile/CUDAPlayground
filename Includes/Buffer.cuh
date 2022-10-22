@@ -7,6 +7,7 @@ class CUDABuffer
 {
 public:
 	CUDABuffer() : size(0), byteSize(0), buffer(nullptr) {}
+	CUDABuffer(unsigned int size) { Allocate(size); }
 	~CUDABuffer() { DeAllocate(); }
 
 	void Allocate(unsigned int _size)
@@ -39,7 +40,7 @@ public:
 	}
 
 	T* GetBuffer() { return buffer; }
-	size_t GetBufferSize() { return byteSize; }
+	size_t GetByteSize() { return byteSize; }
 	unsigned int GetSize() { return size; }
 
 private:
